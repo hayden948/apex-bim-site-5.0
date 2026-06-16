@@ -297,8 +297,8 @@
 (function(){
   // ---------- CONFIG ----------
   var INTAKE_URL = 'https://intake.apexbim.co';
-  var BOOKING_URL = 'https://calendly.com/YOUR-HANDLE/intro-call'; // TODO: your Calendly link
-  var LEAD_ENDPOINT = '/.netlify/functions/lead'; // wired → stores leads in Supabase (deploy netlify-functions-lead.js)
+  var BOOKING_URL = 'https://calendly.com/hayden-apexbim/30min'; // Calendly booking link
+  var LEAD_ENDPOINT = ''; // lead storage not wired (chat-only); GA4 generate_lead still fires
   var CHAT_ENDPOINT = '/.netlify/functions/chat'; // wired → LLM answers (deploy netlify-functions-chat.js + set ANTHROPIC_API_KEY). Empty string = FAQ only.
   // ----------------------------
 
