@@ -1,0 +1,19 @@
+# Clean URLs — serve extension-less paths from their .html file.
+# Real files (/, /apex-rv.css, /product.html, …) are matched first; only
+# extension-less paths with no matching file fall through to these rules.
+/product       /product.html       200
+/survey        /survey.html        200
+/integrations  /integrations.html  200
+/pricing       /pricing.html       200
+/about         /about.html         200
+/demo          /demo.html          200
+/contact       /contact.html       200
+/blog          /blog.html          200
+/careers       /careers.html       200
+/docs          /docs.html          200
+/login         /login.html         200
+/status        /status.html        200
+/waitlist      /waitlist.html      200
+
+# Catch-all: any other extension-less path → its .html equivalent.
+/*             /:splat.html        200

@@ -1,0 +1,77 @@
+# Static multi-page site — no build step.
+[build]
+  publish = "."
+
+# Clean URLs: serve extension-less paths from their .html file.
+# (force = false → real files like /apex-rv.css and / [index.html] are served
+#  first; only paths with no matching file fall through to these rules.)
+[[redirects]]
+  from = "/product"
+  to = "/product.html"
+  status = 200
+
+[[redirects]]
+  from = "/survey"
+  to = "/survey.html"
+  status = 200
+
+[[redirects]]
+  from = "/integrations"
+  to = "/integrations.html"
+  status = 200
+
+[[redirects]]
+  from = "/pricing"
+  to = "/pricing.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/demo"
+  to = "/demo.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/careers"
+  to = "/careers.html"
+  status = 200
+
+[[redirects]]
+  from = "/docs"
+  to = "/docs.html"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/status"
+  to = "/status.html"
+  status = 200
+
+[[redirects]]
+  from = "/waitlist"
+  to = "/waitlist.html"
+  status = 200
+
+# Catch-all: any other extension-less path → its .html equivalent.
+[[redirects]]
+  from = "/*"
+  to = "/:splat.html"
+  status = 200
