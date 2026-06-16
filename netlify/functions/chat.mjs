@@ -100,6 +100,14 @@ export default async (req) => {
     messages.push({ role: "user", content: message });
   }
 
+  const model = process.env.CHAT_MODEL || "claude-opus-4-8";
+  // `effort` is only valid on Fable 5 / Opus 4.5+ / Sonnet 4.6.
+  // Haiku 4.5 and Sonnet 4.5 reject it with a 400 — omit it for those.
+  const reqBody = { model, max_tokens: 400, system: SYSTEM, messages };
+  if (/(opus-4-[5-9])|(sonnet-4-6)|(fable)/i.test(model)) {
+    reqBody.output_config = { effort: "low" }; // snappy, cost-efficient
+  }
+
   try {
     const res = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -108,13 +116,7 @@ export default async (req) => {
         "x-api-key": apiKey,
         "anthropic-version": "2023-06-01",
       },
-      body: JSON.stringify({
-        model: process.env.CHAT_MODEL || "claude-opus-4-8",
-        max_tokens: 400,
-        system: SYSTEM,
-        output_config: { effort: "low" }, // snappy, cost-efficient for a chat widget
-        messages,
-      }),
+      body: JSON.stringify(reqBody),
     });
 
     if (!res.ok) return json({ reply: null }); // API error → FAQ fallback
