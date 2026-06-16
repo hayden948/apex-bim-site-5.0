@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>APEX BIM Studio — AI Revit Family Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="apex-rv.css" />
+<link rel="stylesheet" href="apex-pages.css" />
+</head>
+<body>
+
+<div class="announce">
+  <a href='/demo'><span class="tag">New</span> The 2026 BIM-to-Field Benchmark Report is here <span class="arr">→</span></a>
+</div>
+<header class="site">
+  <div class="wrap nav">
+    <a class='brand' href='/'><span class="mark"></span>APEX <span class="bim">BIM</span> STUDIO</a>
+    <nav class="nav-links">
+      <a class='nl' href='/product'>Product</a>
+      <a class='nl' href='/survey'>Survey &amp; Layout</a>
+      <a class='nl' href='/integrations'>Integrations</a>
+      <a class='nl' href='/pricing'>Pricing</a>
+      <a class='nl' href='/about'>About</a>
+    </nav>
+    <div class="nav-cta">
+      <a class='login' href='/login'>Log in</a>
+      <a class='btn btn-primary' href='/demo'>Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<!-- 1 ── Page hero ── -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="crumb"><a href='/'>Home</a> <span class="sep">/</span> Product</div>
+      <span class="eyebrow">Product · AI Family Generator</span>
+      <h1>Generate construction-ready Revit families in seconds.</h1>
+      <p class="lead">Turn shop drawings, submittals and manufacturer data into coordination-correct, data-rich Revit families — automatically.</p>
+      <div class="hero-cta">
+        <a class='btn btn-primary btn-lg' href='/demo'>Book a demo <span class="arr">→</span></a>
+        <a class='btn btn-ghost btn-lg' href='/pricing'>See pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 ── The problem ── -->
+<section class="pad-sm lede-band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The problem</span>
+      <h2>Modeling content is where BIM schedules quietly bleed out.</h2>
+      <p class="lead">Every family built by hand is hours your team isn't coordinating, and a chance for the model to drift from what gets installed.</p>
+    </div>
+    <div class="bgrid reveal">
+      <div class="bcard">
+        <div class="bi">◷</div>
+        <h3>Hours lost to manual modeling</h3>
+        <p>Detailers spend whole days redrawing geometry from PDFs that a manufacturer already published. Multiply that across every submittal and the calendar disappears.</p>
+      </div>
+      <div class="bcard">
+        <div class="bi">▤</div>
+        <h3>Inconsistent data &amp; standards</h3>
+        <p>Parameters, naming and LOD shift family to family and modeler to modeler. Schedules don't add up and downstream automation has nothing reliable to read.</p>
+      </div>
+      <div class="bcard">
+        <div class="bi">⚠</div>
+        <h3>Clashes found in the field, not the model</h3>
+        <p>When clearance zones and connectors are missing, coordination passes clean and the conflict shows up on site — as an RFI, a delay and a change order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 ── How it works ── -->
+<section class="pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Workflow</span>
+      <h2>From drawing to family in five steps.</h2>
+      <p class="lead">Drop in source content and APEX returns a coordination-correct family — every step is auditable, none of it is hand-modeled.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="sn">01</span>
+        <div>
+          <h3>Upload shop drawing or submittal</h3>
+          <p>Feed APEX a manufacturer PDF, submittal package or cut sheet. No template prep, no manual tracing — just the source you already have on hand.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="sn">02</span>
+        <div>
+          <h3>AI reads geometry, tags &amp; dimensions</h3>
+          <p>Computer vision extracts overall geometry, dimension strings, connector locations and the typed data buried in tables and title blocks.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="sn">03</span>
+        <div>
+          <h3>Builds a parametric LOD 400 family</h3>
+          <p>APEX authors a native parametric family with driven dimensions and flex points — fabrication-level detail, not a placeholder box.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="sn">04</span>
+        <div>
+          <h3>Embeds data, clearance zones &amp; nested survey points</h3>
+          <p>Electrical, mechanical and procurement parameters are written in, maintenance clearances are modeled, and survey points are nested for layout.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="sn">05</span>
+        <div>
+          <h3>Validate &amp; export field-ready content</h3>
+          <p>Automated checks confirm geometry, data completeness and clearance before you ship a clash-ready, schedule-correct family into the project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 & 5 ── Feature rows ── -->
+<section class="pad-sm">
+  <div class="wrap">
+    <div class="frow reveal">
+      <div class="frow-copy">
+        <div class="ficon">✦</div>
+        <h3>Parametric, coordination-correct geometry</h3>
+        <p>Families come out as true parametric content — driven dimensions, real connectors and accurate solids that flex to match the spec, not approximations a coordinator has to fight.</p>
+        <div class="chips">
+          <span class="chip">PDF &amp; submittals</span>
+          <span class="chip">Parametric</span>
+          <span class="chip">LOD 400</span>
+        </div>
+      </div>
+      <div class="frow-media">
+        <div class="media-frame dark">
+          <div class="mbar"><div class="winicon" style="width:13px;height:13px;border-width:1.5px;"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--on-dark-mid);margin-left:8px;">Autodesk Revit — APS-MV-001.rfa</span><div class="traffic"><i></i><i></i><i></i></div></div>
+          <div class="mbody" style="padding:0;">
+            <div class="revit-ui">
+              <div class="rv-ribbon">
+                <div class="rv-tabs"><span>File</span><span>Architecture</span><span>Systems</span><span>Insert</span><span class="on">APEX</span><span>Modify</span></div>
+                <div class="rv-tools"><span class="rv-tool hot">✦</span><span class="rv-tool">◳</span><span class="rv-tool">✛</span><span class="rv-tool">▦</span><span class="rv-tool">≣</span><span class="rv-tool">⊕</span><span class="rv-tool">◫</span></div>
+              </div>
+              <div class="rv-main">
+                <div class="rv-side">
+                  <div class="rv-pal">Properties</div>
+                  <div class="rv-prow"><span class="k">Family</span><span class="v hot">APS-MV-001</span></div>
+                  <div class="rv-prow"><span class="k">Category</span><span class="v">Elec Equip</span></div>
+                  <div class="rv-prow"><span class="k">Voltage</span><span class="v">15 kV</span></div>
+                  <div class="rv-prow"><span class="k">Clearance</span><span class="v">1830 mm</span></div>
+                  <div class="rv-pal">Project Browser</div>
+                  <div class="rv-tree"><span>Views (all)</span><span class="ind">3D Views</span><span class="ind on">{3D} — APS-MV-001</span><span class="ind">L2 Power Plan</span><span>Families</span></div>
+                </div>
+                <div class="rv-view">
+                  <span class="rv-badge pts">+ 4 survey points</span>
+                  <div class="rv-cube"></div>
+                  <div class="iso-clear"></div>
+                  <div class="cube"><div class="side top"><span class="seam"></span></div><div class="side left"></div><div class="side right"></div></div>
+                  <span class="iso-pt" style="left:30%;top:44%"></span><span class="iso-pt" style="left:70%;top:44%"></span>
+                  <span class="iso-pt" style="left:30%;top:70%"></span><span class="iso-pt" style="left:70%;top:70%"></span>
+                  <span class="rv-vlabel">3D View · {3D}</span>
+                  <span class="rv-badge gen"><span class="dot"></span>Generated in 47s</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frow flip reveal">
+      <div class="frow-copy">
+        <div class="ficon">✓</div>
+        <h3>Validated before it ships</h3>
+        <p>Every family runs an automated check suite — geometry and connectors, embedded data completeness, and modeled maintenance clearance — so what lands in the model is clash-ready and schedule-correct from the first placement.</p>
+        <div class="chips">
+          <span class="chip">Clearance zones</span>
+          <span class="chip">Data completeness</span>
+          <span class="chip">Clash-ready</span>
+        </div>
+      </div>
+      <div class="frow-media">
+        <div class="media-frame dark">
+          <div class="mbar"><div class="winicon" style="width:13px;height:13px;border-width:1.5px;"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--on-dark-mid);margin-left:8px;">Autodesk Revit — APEX Validation</span><div class="traffic"><i></i><i></i><i></i></div></div>
+          <div class="mbody" style="padding:0;">
+            <div class="revit-ui">
+              <div class="rv-ribbon">
+                <div class="rv-tabs"><span>File</span><span>Systems</span><span class="on">APEX</span><span>Modify</span></div>
+                <div class="rv-tools"><span class="rv-tool hot">✓</span><span class="rv-tool">▤</span><span class="rv-tool">≣</span><span class="rv-tool">⊕</span></div>
+              </div>
+              <div class="rv-main">
+                <div class="rv-side">
+                  <div class="rv-pal">Properties</div>
+                  <div class="rv-prow"><span class="k">Family</span><span class="v hot">APS-MV-001</span></div>
+                  <div class="rv-prow"><span class="k">Checks</span><span class="v">8 total</span></div>
+                  <div class="rv-prow"><span class="k">Result</span><span class="v">7 pass</span></div>
+                  <div class="rv-pal">Project Browser</div>
+                  <div class="rv-tree"><span class="on">APEX Validation</span><span class="ind">Clearance Check</span><span>Families</span></div>
+                </div>
+                <div class="rv-view">
+                  <div class="val-list dk">
+                    <div class="val-row"><span class="vk">✓</span>Geometry &amp; connectors<span class="vstat">PASS</span></div>
+                    <div class="val-row"><span class="vk">✓</span>Maintenance clearance zone<span class="vstat">PASS</span></div>
+                    <div class="val-row"><span class="vk">✓</span>Voltage &amp; system data<span class="vstat">PASS</span></div>
+                    <div class="val-row"><span class="vk">✓</span>Survey points nested<span class="vstat">4 / 4</span></div>
+                    <div class="val-row warn"><span class="vk">!</span>Procurement data<span class="vstat">REVIEW</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 ── ROI (dark) ── -->
+<section class="trust pad-sm">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow on-dark">Proven ROI</span>
+      <h2>Less hand-modeling. More coordination that holds.</h2>
+    </div>
+    <div class="kpi-strip reveal">
+      <div class="k"><div class="kv">90<span class="u">%</span></div><div class="kl">Fewer modeling hours</div></div>
+      <div class="k"><div class="kv">47<span class="u">s</span></div><div class="kl">Average generation</div></div>
+      <div class="k"><div class="kv">LOD 400</div><div class="kl">Fabrication-level output</div></div>
+      <div class="k"><div class="kv">0</div><div class="kl">First-pass clashes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 ── Use cases ── -->
+<section class="pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Use cases</span>
+      <h2>Built for the trades that live and die by content.</h2>
+      <p class="lead">From switchgear to skids, APEX generates the disciplined, data-rich families your coordination and fabrication workflows depend on.</p>
+    </div>
+    <div class="bgrid cols-4 reveal">
+      <div class="bcard">
+        <div class="bi">⚡</div>
+        <h3>Electrical</h3>
+        <p>Switchgear, transformers and panels with voltage data, code clearances and connectors modeled to spec.</p>
+      </div>
+      <div class="bcard">
+        <div class="bi">❖</div>
+        <h3>Mechanical</h3>
+        <p>AHUs, pumps and equipment skids with accurate connectors, service access and full system parameters.</p>
+      </div>
+      <div class="bcard">
+        <div class="bi">▦</div>
+        <h3>Data Centers</h3>
+        <p>Repeatable rack, PDU and CRAC content built once and flexed across every hall and white-space module.</p>
+      </div>
+      <div class="bcard">
+        <div class="bi">⬢</div>
+        <h3>Prefabrication</h3>
+        <p>Fabrication-ready families with nested survey points that drive layout, kitting and the shop floor directly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 ── Final CTA (dark) ── -->
+<section class="cta pad">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="inner reveal">
+      <h2>See it generate your family.</h2>
+      <p>Bring a real submittal to a live demo and watch APEX turn it into a coordination-correct, field-ready Revit family — in seconds.</p>
+      <div class="row">
+        <a class='btn btn-primary btn-lg' href='/demo'>Book a demo <span class="arr">→</span></a>
+        <a class="btn btn-ghost on-dark btn-lg" href="#">Join the waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class='brand' href='/'><span class="mark"></span>APEX <span class="bim">BIM</span> STUDIO</a>
+        <p>The intelligent layer between BIM, the field, and everything in between. Built by construction professionals.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href='/product'>AI Family Generator</a>
+        <a href='/survey'>Survey &amp; Layout</a>
+        <a href='/integrations'>Integrations</a>
+        <a href='/pricing'>Pricing</a>
+        <a href='/demo'>Book a demo</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href='/about'>About</a>
+        <a href='/blog'>Blog</a>
+        <a href='/careers'>Careers</a>
+        <a href='/contact'>Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href='/docs'>Documentation</a>
+        <a href='/waitlist'>Waitlist</a>
+        <a href='/login'>Log in</a>
+        <a href='/status'>Status</a>
+      </div>
+    </div>
+    <div class="foot-meta">
+      <span>APEX BIM Studio · Millville, Utah · Building the future of construction data</span>
+      <span>© 2026 APEX BIM Studio</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LW3P2F1BCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LW3P2F1BCT');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","x1a5ljga4u");
+</script><!-- ============================================================
+     APEX BIM STUDIO — AI LEAD ASSISTANT (self-contained widget)
+     Paste this whole block just before </body> on any page.
+     Works with NO backend out of the box (scripted qualification flow).
+     - Captures + scores leads, routes to intake / booking
+     - Fires GA4 events: chat_open, generate_lead, chat_book_call
+     - Optional: wire askAI() to an LLM API for free-text answers (see TODO)
+     - Optional: set LEAD_ENDPOINT to POST captured leads to your CRM/webhook
+     ============================================================ -->
+<div id="apexbot"></div>
+<style>
+  #apexbot, #apexbot * { box-sizing:border-box; font-family:'Hanken Grotesk',system-ui,Arial,sans-serif; }
+  #apexbot{ --b:#0d0f12; --p:#171b21; --p2:#13161b; --line:#262c35; --ink:#eef1f5; --dim:#a4adba; --volt:#F23925; --voltd:#C72E1C; }
+  #ab-launch{position:fixed;right:20px;bottom:20px;z-index:99998;display:flex;align-items:center;gap:8px;
+    background:var(--volt);color:var(--b);border:none;border-radius:999px;padding:12px 18px;font-weight:700;
+    font-size:.95rem;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  #ab-launch:hover{background:var(--voltd)}
+  #ab-panel{position:fixed;right:20px;bottom:20px;z-index:99999;width:360px;max-width:calc(100vw - 24px);
+    height:560px;max-height:calc(100vh - 24px);display:none;flex-direction:column;background:var(--p);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.5)}
+  #ab-panel.open{display:flex}
+  #ab-head{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--p2);border-bottom:1px solid var(--line)}
+  #ab-dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 6px #3ddc84}
+  #ab-title{font-weight:800;color:var(--ink);font-size:.95rem}
+  #ab-sub{font-size:.7rem;color:var(--dim)}
+  #ab-x{margin-left:auto;background:none;border:none;color:var(--dim);font-size:1.1rem;cursor:pointer}
+  #ab-log{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+  .ab-msg{max-width:85%;padding:10px 13px;border-radius:12px;font-size:.9rem;line-height:1.45}
+  .ab-bot{align-self:flex-start;background:var(--p2);color:var(--ink);border:1px solid var(--line);border-bottom-left-radius:4px}
+  .ab-user{align-self:flex-end;background:var(--volt);color:var(--b);font-weight:600;border-bottom-right-radius:4px}
+  .ab-quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+  .ab-chip{background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:999px;
+    padding:7px 12px;font-size:.82rem;cursor:pointer;transition:all .12s}
+  .ab-chip:hover{border-color:var(--volt);color:var(--volt)}
+  #ab-inputrow{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--p2)}
+  #ab-input{flex:1;background:var(--b);border:1px solid var(--line);color:var(--ink);border-radius:8px;
+    padding:10px 12px;font-size:.88rem;outline:none}
+  #ab-input:focus{border-color:var(--volt)}
+  #ab-send{background:var(--volt);color:var(--b);border:none;border-radius:8px;padding:0 14px;font-weight:700;cursor:pointer}
+  .ab-cta{display:inline-block;margin-top:4px;background:var(--volt);color:var(--b);text-decoration:none;
+    padding:9px 14px;border-radius:8px;font-weight:700;font-size:.85rem}
+</style>
+<script>
+(function(){
+  // ---------- CONFIG ----------
+  var INTAKE_URL = 'https://intake.apexbim.co';
+  var BOOKING_URL = 'https://calendly.com/YOUR-HANDLE/intro-call'; // TODO: your Calendly link
+  var LEAD_ENDPOINT = '/.netlify/functions/lead'; // wired → stores leads in Supabase (deploy netlify-functions-lead.js)
+  var CHAT_ENDPOINT = '/.netlify/functions/chat'; // wired → LLM answers (deploy netlify-functions-chat.js + set ANTHROPIC_API_KEY). Empty string = FAQ only.
+  // ----------------------------
+
+  function ga(n,p){ if(typeof gtag==='function'){gtag('event',n,p||{});} else {window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:n},p||{}));} }
+
+  var root=document.getElementById('apexbot');
+  root.innerHTML =
+    '<button id="ab-launch" aria-label="Chat with Apex">💬 Need a family built?</button>'+
+    '<div id="ab-panel" role="dialog" aria-label="Apex assistant">'+
+      '<div id="ab-head"><span id="ab-dot"></span><div><div id="ab-title">Apex Assistant</div>'+
+      '<div id="ab-sub">Typically replies in a few minutes</div></div><button id="ab-x" aria-label="Close">✕</button></div>'+
+      '<div id="ab-log"></div>'+
+      '<div class="ab-quick" id="ab-quick"></div>'+
+      '<div id="ab-inputrow"><input id="ab-input" placeholder="Type a message…" autocomplete="off"><button id="ab-send">Send</button></div>'+
+    '</div>';
+
+  var panel=document.getElementById('ab-panel'),
+      log=document.getElementById('ab-log'),
+      quick=document.getElementById('ab-quick'),
+      input=document.getElementById('ab-input');
+
+  var lead={}, score=0, started=false, transcript=[];
+
+  function bot(html){ var d=document.createElement('div'); d.className='ab-msg ab-bot'; d.innerHTML=html; log.appendChild(d); log.scrollTop=log.scrollHeight; transcript.push('bot: '+d.textContent); }
+  function user(t){ var d=document.createElement('div'); d.className='ab-msg ab-user'; d.textContent=t; log.appendChild(d); log.scrollTop=log.scrollHeight; transcript.push('user: '+t); }
+  function chips(arr){ quick.innerHTML=''; arr.forEach(function(c){ var b=document.createElement('button'); b.className='ab-chip'; b.textContent=c.label; b.onclick=function(){ user(c.label); quick.innerHTML=''; c.go(); }; quick.appendChild(b); }); }
+
+  function open(){ panel.classList.add('open'); document.getElementById('ab-launch').style.display='none'; if(!started){started=true; ga('chat_open'); greet();} }
+  function close(){ panel.classList.remove('open'); document.getElementById('ab-launch').style.display='flex'; }
+
+  function greet(){
+    bot("Hey — I'm the Apex assistant. I can give you a ballpark price, send a sample family, answer a question, or set up a call. What do you need?");
+    chips([
+      {label:'💵 Get a price', go:flowPrice},
+      {label:'📐 See a sample', go:flowSample},
+      {label:'❓ Ask a question', go:flowAsk},
+      {label:'📞 Talk to a human', go:flowHuman}
+    ]);
+  }
+
+  // ---- PRICE FLOW ----
+  function flowPrice(){
+    score+=20; bot("Quick questions and I'll give you a ballpark. What trade is the equipment?");
+    chips(['Electrical','Mechanical / HVAC','Plumbing','Structural / other'].map(function(t){return {label:t,go:function(){lead.trade=t; askQty();}};}));
+  }
+  function askQty(){ bot("How many families do you need?");
+    chips(['Just 1','2–5','6–20','20+'].map(function(q){return {label:q,go:function(){lead.qty=q; if(q!=='Just 1')score+=15; askLOD();}};})); }
+  function askLOD(){ bot("What level of detail (LOD)?");
+    chips(['LOD 200','LOD 300','LOD 350','LOD 400','Not sure'].map(function(l){return {label:l,go:function(){lead.lod=l; quote();}};})); }
+  function quote(){
+    var base = (lead.lod==='LOD 400'?'$400–$600':lead.lod==='LOD 350'?'$300–$500':'$150–$350');
+    bot("Ballpark for "+(lead.trade)+" at "+(lead.lod)+": <strong>"+base+" per family</strong>, flat rate, ~5-day turnaround. And your <strong>first family is free</strong>. Want a firm quote? Drop your email and I'll have one to you within 24 hours.");
+    askEmail('quote');
+  }
+
+  // ---- SAMPLE FLOW ----
+  function flowSample(){ score+=15; bot("Happy to. Which trade should the sample cover?");
+    chips(['Electrical','Mechanical','Plumbing'].map(function(t){return {label:t,go:function(){lead.trade=t; bot("Great — drop your email and I'll send a sample "+t.toLowerCase()+" family (.rfa + type catalog) you can open in Revit."); askEmail('sample');}};})); }
+
+  // ---- ASK FLOW (scripted FAQ + optional AI) ----
+  function flowAsk(){ bot("Ask away — turnaround, pricing, file formats, IP, Revit versions, anything. Type your question below."); }
+
+  var FAQ=[
+    [/(how fast|turnaround|how long|deliver)/i,"Standard turnaround is 5 business days; a 48-hour rush is available for +35%."],
+    [/(price|cost|how much|\$)/i,"Flat-rate $150–$600 per family by complexity and LOD — quoted in 24 hours, no hourly billing. Your first family is free."],
+    [/(own|ip|nda|confiden|rights)/i,"You own every family we build, and we sign an NDA on request — your drawings stay confidential."],
+    [/(revit version|2021|2022|2023|2024|2025|2026|which version)/i,"We deliver families compatible with Revit 2021 through 2026."],
+    [/(format|rfa|type catalog|deliver what|connectors|parametr)/i,"You get a parametric, properly hosted .rfa with type catalog and shared parameters, tested in a live project, plus two revision rounds."],
+    [/(start|begin|need from me|how do i)/i,"Send shop drawings, product data/specs, the LOD you need, and your deadline — and your first family is free."],
+    [/(where|located|based|utah)/i,"We're based in Millville, Utah, serving MEP and electrical contractors nationwide."]
+  ];
+
+  // Calls the LLM backend for free-text answers; returns a string, or null to
+  // fall back to the scripted FAQ (on any error, empty config, or no key set).
+  async function askAI(message){
+    if(!CHAT_ENDPOINT) return null;
+    try{
+      var res = await fetch(CHAT_ENDPOINT, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ message: message, transcript: transcript.slice(-10) })
+      });
+      if(!res.ok) return null;
+      var j = await res.json();
+      return (j && j.reply) ? j.reply : null;
+    }catch(e){ return null; }
+  }
+
+  async function answer(text){
+    var ai=null; try{ ai=await askAI(text); }catch(e){}
+    if(ai){ bot(ai); return; }
+    for(var i=0;i<FAQ.length;i++){ if(FAQ[i][0].test(text)){ bot(FAQ[i][1]); offerNext(); return; } }
+    bot("Good question — I'll loop in the team. Want to leave your email so we can answer properly, or jump straight to a free family?");
+    chips([{label:'Leave my email',go:function(){askEmail('question');}},{label:'Start a free family',go:goIntake}]);
+  }
+  function offerNext(){ chips([{label:'Get a price',go:flowPrice},{label:'Start a free family',go:goIntake},{label:'Talk to a human',go:flowHuman}]); }
+
+  // ---- HUMAN / BOOK ----
+  function flowHuman(){ score+=25; bot("You got it. What's your name?"); awaiting='name'; }
+
+  // ---- EMAIL CAPTURE + lead submit ----
+  var awaiting=null, emailPurpose=null;
+  function askEmail(purpose){ emailPurpose=purpose; awaiting='email'; }
+  function validEmail(e){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e); }
+
+  function submitLead(){
+    lead.score = score; lead.transcript = transcript.join('\n'); lead.url = location.href; lead.ts = new Date().toISOString();
+    ga('generate_lead',{ source:'chatbot', cta_id:'chat_'+(emailPurpose||'lead'), lead_score:score, trade:lead.trade||'' });
+    if(LEAD_ENDPOINT){ try{ fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)}); }catch(e){} }
+  }
+
+  function afterEmail(){
+    submitLead();
+    var hot = score>=40;
+    if(emailPurpose==='sample'){ bot("Sent! Check your inbox shortly. Want to send us the family you actually need? It's free."); ctaIntake(); }
+    else if(emailPurpose==='quote'){ bot("Perfect — you'll get a firm quote within 24 hours. Want to start now and get your first family free?"); ctaIntake(); }
+    else { bot("Thanks! We'll follow up shortly."); }
+    if(hot){ bot('Since this looks time-sensitive, you can grab a slot directly: <a class="ab-cta" href="'+BOOKING_URL+'" target="_blank" rel="noopener" onclick="window.dataLayer&&dataLayer.push({event:\'chat_book_call\'})">Book a 15-min call →</a>'); }
+  }
+
+  function goIntake(){ ga('generate_lead',{source:'chatbot',cta_id:'chat_intake'}); window.open(INTAKE_URL,'_blank'); }
+  function ctaIntake(){ bot('<a class="ab-cta" href="'+INTAKE_URL+'" target="_blank" rel="noopener" onclick="window.dataLayer&&dataLayer.push({event:\'generate_lead\',cta_id:\'chat_intake\'})">Start my free family →</a>'); }
+
+  // ---- input handling ----
+  function handle(text){
+    text=text.trim(); if(!text) return; user(text); input.value='';
+    if(awaiting==='name'){ lead.name=text; awaiting='email'; bot("Thanks "+text.split(' ')[0]+" — what's the best email to reach you?"); return; }
+    if(awaiting==='email'){
+      if(!validEmail(text)){ bot("That doesn't look like an email — mind trying again?"); return; }
+      lead.email=text; awaiting=null; afterEmail(); return;
+    }
+    answer(text); // free-text question
+  }
+
+  document.getElementById('ab-launch').onclick=open;
+  document.getElementById('ab-x').onclick=close;
+  document.getElementById('ab-send').onclick=function(){ handle(input.value); };
+  input.addEventListener('keydown',function(e){ if(e.key==='Enter'){ handle(input.value); } });
+})();
+</script>
+<!-- ============================================================
+     SETUP CHECKLIST
+     1. Replace BOOKING_URL with your Calendly (or other) link.
+     2. (Optional) Set LEAD_ENDPOINT to a webhook/CRM URL to capture leads server-side.
+     3. (Optional) Wire askAI() to an LLM endpoint for free-text answers; until then it
+        falls back to the built-in FAQ matcher (covers price, turnaround, IP, versions, formats, etc.).
+     4. GA4 events fired: chat_open, generate_lead (source=chatbot), chat_book_call.
+        Mark generate_lead as a Key event in GA4 (already planned in your analytics setup).
+     ============================================================ --><script>
+(function(){
+  function goHome(){
+    var p=location.pathname;
+    if(p==='/'||p===''||p==='/index.html'){ window.scrollTo({top:0,behavior:'smooth'}); }
+    else { location.href='/'; }
+  }
+  document.querySelectorAll('.brand').forEach(function(b){
+    b.style.cursor='pointer';
+    b.setAttribute('role','link');
+    b.setAttribute('tabindex','0');
+    b.setAttribute('aria-label','Go to home');
+    b.addEventListener('click',goHome);
+    b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); goHome(); } });
+  });
+})();
+</script></body>
+</html>
