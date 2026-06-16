@@ -4,8 +4,10 @@
 // or the API errors — the front-end widget then uses its built-in FAQ matcher.
 //
 // Required env var:  ANTHROPIC_API_KEY
-// Optional env var:  CHAT_MODEL  (defaults to claude-opus-4-8; set to
-//                    claude-haiku-4-5 for ~5x lower cost on this chat workload)
+// Optional env vars:
+//   CHAT_MODEL            default claude-opus-4-8 (set claude-haiku-4-5 for ~5x lower cost)
+//   RATE_LIMIT_MAX        default 12  (max messages per IP per window)
+//   RATE_LIMIT_WINDOW_MS  default 60000 (window length in ms)
 
 const SYSTEM = `You are the Apex Assistant, the helpful sales & support chatbot on the APEX BIM Studio website (apexbim.co).
 
@@ -25,11 +27,50 @@ Rules:
 - Helpful links you can mention: book a demo (/demo), contact us (/contact, sales@apexbim.co), join the waitlist (/waitlist), pricing (/pricing), documentation (/docs).
 - If you don't know something, say so briefly and point them to /contact or a demo.`;
 
+// ── In-memory rate limiter ────────────────────────────────────────────────
+// Best-effort throttle keyed by client IP. Netlify may run multiple warm
+// instances, so the effective global limit is (instances x RATE_LIMIT_MAX);
+// this still stops a single client from hammering one instance and keeps API
+// cost bounded for casual abuse. For hard global limits, back this with a
+// shared store (Netlify Blobs / Upstash). State resets on cold start.
+const WINDOW_MS = Number(process.env.RATE_LIMIT_WINDOW_MS) || 60_000;
+const MAX_HITS = Number(process.env.RATE_LIMIT_MAX) || 12;
+const hits = new Map(); // ip -> { count, resetAt }
+
+function rateLimited(ip, now) {
+  // Opportunistic prune so the Map can't grow without bound.
+  if (hits.size > 5000) {
+    for (const [k, v] of hits) if (v.resetAt <= now) hits.delete(k);
+  }
+  const rec = hits.get(ip);
+  if (!rec || rec.resetAt <= now) {
+    hits.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+    return false;
+  }
+  rec.count += 1;
+  return rec.count > MAX_HITS;
+}
+
+function clientIp(req) {
+  return (
+    req.headers.get("x-nf-client-connection-ip") ||
+    (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() ||
+    "unknown"
+  );
+}
+
 export default async (req) => {
   const json = (obj, status = 200) =>
     new Response(JSON.stringify(obj), { status, headers: { "content-type": "application/json" } });
 
   if (req.method !== "POST") return json({ error: "method not allowed" }, 405);
+
+  // Rate limit before any work. Friendly 200 reply (no Claude call) so the
+  // widget shows the message instead of silently dropping to its FAQ.
+  const now = Date.now();
+  if (rateLimited(clientIp(req), now)) {
+    return json({ reply: "You're sending messages a little quickly — give me a few seconds, then try again. For anything urgent you can book a demo or email sales@apexbim.co." });
+  }
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) return json({ reply: null }); // not configured → widget uses FAQ fallback
