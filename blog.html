@@ -286,22 +286,7 @@
 
   function ga(n,p){ if(typeof gtag==='function'){gtag('event',n,p||{});} else {window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:n},p||{}));} }
 
-  var root=document.getElementById('apexbot');
-  root.innerHTML =
-    '<button id="ab-launch" aria-label="Chat with Apex">💬 Need a family built?</button>'+
-    '<div id="ab-panel" role="dialog" aria-label="Apex assistant">'+
-      '<div id="ab-head"><span id="ab-dot"></span><div><div id="ab-title">Apex Assistant</div>'+
-      '<div id="ab-sub">Typically replies in a few minutes</div></div><button id="ab-x" aria-label="Close">✕</button></div>'+
-      '<div id="ab-log"></div>'+
-      '<div class="ab-quick" id="ab-quick"></div>'+
-      '<div id="ab-inputrow"><input id="ab-input" placeholder="Type a message…" autocomplete="off"><button id="ab-send">Send</button></div>'+
-    '</div>';
-
-  var panel=document.getElementById('ab-panel'),
-      log=document.getElementById('ab-log'),
-      quick=document.getElementById('ab-quick'),
-      input=document.getElementById('ab-input');
-
+  var panel, log, quick, input;
   var lead={}, score=0, started=false, transcript=[];
 
   function bot(html){ var d=document.createElement('div'); d.className='ab-msg ab-bot'; d.innerHTML=html; log.appendChild(d); log.scrollTop=log.scrollHeight; transcript.push('bot: '+d.textContent); }
@@ -412,10 +397,52 @@
     answer(text); // free-text question
   }
 
-  document.getElementById('ab-launch').onclick=open;
-  document.getElementById('ab-x').onclick=close;
-  document.getElementById('ab-send').onclick=function(){ handle(input.value); };
-  input.addEventListener('keydown',function(e){ if(e.key==='Enter'){ handle(input.value); } });
+  // ---- anti-snippet guard ----
+  // A stale Netlify snippet-injection appends a legacy widget (same #ab-launch /
+  // #ab-panel ids, outdated scripted pricing) after our scripts. We init on
+  // window 'load' (after all parse-time scripts), destroy every existing
+  // launcher/panel first (killing the legacy widget's DOM + bound listeners),
+  // then build ours fresh. Ours is tagged data-apx-honest="1".
+  function teardown(){
+    document.querySelectorAll('#ab-launch').forEach(function(el){ el.remove(); });
+    document.querySelectorAll('#ab-panel').forEach(function(el){ el.remove(); });
+    document.querySelectorAll('body > [id^="ab-"]').forEach(function(el){ el.remove(); });
+  }
+  function foreignPresent(){
+    var f=false;
+    document.querySelectorAll('#ab-launch, #ab-panel').forEach(function(el){ if(el.getAttribute('data-apx-honest')!=='1'){ f=true; } });
+    return f;
+  }
+  function build(){
+    teardown(); // idempotent: always tear down (ours or theirs) before building
+    var root=document.getElementById('apexbot');
+    if(!root){ root=document.createElement('div'); root.id='apexbot'; document.body.appendChild(root); }
+    root.setAttribute('data-apx-honest','1');
+    root.innerHTML =
+      '<button id="ab-launch" data-apx-honest="1" aria-label="Chat with Apex">💬 Need a family built?</button>'+
+      '<div id="ab-panel" data-apx-honest="1" role="dialog" aria-label="Apex assistant">'+
+        '<div id="ab-head"><span id="ab-dot"></span><div><div id="ab-title">Apex Assistant</div>'+
+        '<div id="ab-sub">Typically replies in a few minutes</div></div><button id="ab-x" aria-label="Close">✕</button></div>'+
+        '<div id="ab-log"></div>'+
+        '<div class="ab-quick" id="ab-quick"></div>'+
+        '<div id="ab-inputrow"><input id="ab-input" placeholder="Type a message…" autocomplete="off"><button id="ab-send">Send</button></div>'+
+      '</div>';
+    panel=document.getElementById('ab-panel');
+    log=document.getElementById('ab-log');
+    quick=document.getElementById('ab-quick');
+    input=document.getElementById('ab-input');
+    started=false;
+    document.getElementById('ab-launch').onclick=open;
+    document.getElementById('ab-x').onclick=close;
+    document.getElementById('ab-send').onclick=function(){ handle(input.value); };
+    input.addEventListener('keydown',function(e){ if(e.key==='Enter'){ handle(input.value); } });
+  }
+  window.addEventListener('load', function(){
+    build();
+    // if the legacy snippet scheduled work on DOMContentLoaded/load after us,
+    // sweep once more shortly after load and rebuild if a foreign widget appeared
+    setTimeout(function(){ if(foreignPresent()){ build(); } }, 1500);
+  });
 })();
 </script>
 <!-- ============================================================
