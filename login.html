@@ -29,7 +29,7 @@
 <body>
 
 <div class="announce">
-  <a href="/demo"><span class="tag">New</span> The 2026 BIM-to-Field Benchmark Report is here <span class="arr">→</span></a>
+  <a href="/demo"><span class="tag">New</span> Private beta is open — transformer families today, switchgear in development <span class="arr">→</span></a>
 </div>
 <header class="site">
   <div class="wrap nav">
@@ -191,8 +191,8 @@
 (function(){
   // ---------- CONFIG ----------
   var INTAKE_URL = 'https://intake.apexbim.co';
-  var BOOKING_URL = 'https://calendly.com/hayden-apexbim/30min'; // Calendly booking link
-  var LEAD_ENDPOINT = ''; // lead storage not wired (chat-only); GA4 generate_lead still fires
+  var BOOKING_URL = 'https://calendly.com/YOUR-HANDLE/intro-call'; // TODO: your Calendly link
+  var LEAD_ENDPOINT = '/.netlify/functions/lead'; // wired → stores leads in Supabase (deploy netlify-functions-lead.js)
   var CHAT_ENDPOINT = '/.netlify/functions/chat'; // wired → LLM answers (deploy netlify-functions-chat.js + set ANTHROPIC_API_KEY). Empty string = FAQ only.
   // ----------------------------
 
@@ -224,9 +224,9 @@
   function close(){ panel.classList.remove('open'); document.getElementById('ab-launch').style.display='flex'; }
 
   function greet(){
-    bot("Hey — I'm the Apex assistant. I can give you a ballpark price, send a sample family, answer a question, or set up a call. What do you need?");
+    bot("Hey — I'm the Apex assistant. I can explain how the private beta and pilot-first pricing work, answer a question, or set up a call. What do you need?");
     chips([
-      {label:'💵 Get a price', go:flowPrice},
+      {label:'💵 How pricing works', go:flowPrice},
       {label:'📐 See a sample', go:flowSample},
       {label:'❓ Ask a question', go:flowAsk},
       {label:'📞 Talk to a human', go:flowHuman}
@@ -235,33 +235,27 @@
 
   // ---- PRICE FLOW ----
   function flowPrice(){
-    score+=20; bot("Quick questions and I'll give you a ballpark. What trade is the equipment?");
-    chips(['Electrical','Mechanical / HVAC','Plumbing','Structural / other'].map(function(t){return {label:t,go:function(){lead.trade=t; askQty();}};}));
+    score+=20; bot("APEX is in private beta with pilot-first pricing: run a pilot on your next project's drawings, and we set pricing together after you've seen it work on your own drawings. What trade is the equipment?");
+    chips(['Electrical','Mechanical / HVAC','Plumbing','Structural / other'].map(function(t){return {label:t,go:function(){lead.trade=t; quote();}};}));
   }
-  function askQty(){ bot("How many families do you need?");
-    chips(['Just 1','2–5','6–20','20+'].map(function(q){return {label:q,go:function(){lead.qty=q; if(q!=='Just 1')score+=15; askLOD();}};})); }
-  function askLOD(){ bot("What level of detail (LOD)?");
-    chips(['LOD 200','LOD 300','LOD 350','LOD 400','Not sure'].map(function(l){return {label:l,go:function(){lead.lod=l; quote();}};})); }
   function quote(){
-    var base = (lead.lod==='LOD 400'?'$400–$600':lead.lod==='LOD 350'?'$300–$500':'$150–$350');
-    bot("Ballpark for "+(lead.trade)+" at "+(lead.lod)+": <strong>"+base+" per family</strong>, flat rate, ~5-day turnaround. And your <strong>first family is free</strong>. Want a firm quote? Drop your email and I'll have one to you within 24 hours.");
+    bot("Thanks — for "+(lead.trade)+", the next step is a pilot on your own drawings. Today APEX generates transformer families; switchgear is in active development. Drop your email and we'll set it up.");
     askEmail('quote');
   }
 
   // ---- SAMPLE FLOW ----
-  function flowSample(){ score+=15; bot("Happy to. Which trade should the sample cover?");
-    chips(['Electrical','Mechanical','Plumbing'].map(function(t){return {label:t,go:function(){lead.trade=t; bot("Great — drop your email and I'll send a sample "+t.toLowerCase()+" family (.rfa + type catalog) you can open in Revit."); askEmail('sample');}};})); }
+  function flowSample(){ score+=15; bot("Happy to — today APEX generates transformer families (switchgear is in active development). Drop your email and we'll send a human-verified sample transformer family (.rfa) you can open in Revit 2025."); askEmail('sample'); }
 
   // ---- ASK FLOW (scripted FAQ + optional AI) ----
   function flowAsk(){ bot("Ask away — turnaround, pricing, file formats, IP, Revit versions, anything. Type your question below."); }
 
   var FAQ=[
-    [/(how fast|turnaround|how long|deliver)/i,"Standard turnaround is 5 business days; a 48-hour rush is available for +35%."],
-    [/(price|cost|how much|\$)/i,"Flat-rate $150–$600 per family by complexity and LOD — quoted in 24 hours, no hourly billing. Your first family is free."],
+    [/(how fast|turnaround|how long|deliver)/i,"APEX generates a family from a manufacturer shop-drawing PDF in minutes — versus the 2–4 hours it typically takes to model one by hand."],
+    [/(price|cost|how much|\$)/i,"We're in private beta with pilot-first pricing: run a pilot on your next project's drawings, and pricing is set together after you've seen it work on your own drawings."],
     [/(own|ip|nda|confiden|rights)/i,"You own every family we build, and we sign an NDA on request — your drawings stay confidential."],
-    [/(revit version|2021|2022|2023|2024|2025|2026|which version)/i,"We deliver families compatible with Revit 2021 through 2026."],
-    [/(format|rfa|type catalog|deliver what|connectors|parametr)/i,"You get a parametric, properly hosted .rfa with type catalog and shared parameters, tested in a live project, plus two revision rounds."],
-    [/(start|begin|need from me|how do i)/i,"Send shop drawings, product data/specs, the LOD you need, and your deadline — and your first family is free."],
+    [/(revit version|2021|2022|2023|2024|2025|2026|which version)/i,"Families are generated and validation-checked in Revit 2025 today; support for more versions is on the roadmap."],
+    [/(format|rfa|type catalog|deliver what|connectors|parametr)/i,"You get a parametric .rfa with shared parameters and nested survey points — every verified family passes 6/6 automated validation checks in Revit 2025."],
+    [/(start|begin|need from me|how do i)/i,"Send manufacturer shop-drawing PDFs — transformers today, switchgear in active development — and we'll set up a pilot on your own drawings."],
     [/(where|located|based|utah)/i,"We're based in Millville, Utah, serving MEP and electrical contractors nationwide."]
   ];
 
@@ -270,10 +264,14 @@
   async function askAI(message){
     if(!CHAT_ENDPOINT) return null;
     try{
+      var ac = ('AbortController' in window) ? new AbortController() : null;
+      var tm = ac ? setTimeout(function(){ ac.abort(); }, 4000) : null;
       var res = await fetch(CHAT_ENDPOINT, {
         method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ message: message, transcript: transcript.slice(-10) })
+        body: JSON.stringify({ message: message, transcript: transcript.slice(-10) }),
+        signal: ac ? ac.signal : undefined
       });
+      if(tm) clearTimeout(tm);
       if(!res.ok) return null;
       var j = await res.json();
       return (j && j.reply) ? j.reply : null;
@@ -284,10 +282,10 @@
     var ai=null; try{ ai=await askAI(text); }catch(e){}
     if(ai){ bot(ai); return; }
     for(var i=0;i<FAQ.length;i++){ if(FAQ[i][0].test(text)){ bot(FAQ[i][1]); offerNext(); return; } }
-    bot("Good question — I'll loop in the team. Want to leave your email so we can answer properly, or jump straight to a free family?");
-    chips([{label:'Leave my email',go:function(){askEmail('question');}},{label:'Start a free family',go:goIntake}]);
+    bot("Good question — I'll loop in the team. Want to leave your email so we can answer properly, or jump straight to a pilot on your own drawings?");
+    chips([{label:'Leave my email',go:function(){askEmail('question');}},{label:'Start a pilot',go:goIntake}]);
   }
-  function offerNext(){ chips([{label:'Get a price',go:flowPrice},{label:'Start a free family',go:goIntake},{label:'Talk to a human',go:flowHuman}]); }
+  function offerNext(){ chips([{label:'Get a price',go:flowPrice},{label:'Start a pilot',go:goIntake},{label:'Talk to a human',go:flowHuman}]); }
 
   // ---- HUMAN / BOOK ----
   function flowHuman(){ score+=25; bot("You got it. What's your name?"); awaiting='name'; }
@@ -298,7 +296,7 @@
   function validEmail(e){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e); }
 
   function submitLead(){
-    lead.score = score; lead.transcript = transcript.join('\n'); lead.url = location.href; lead.ts = new Date().toISOString();
+    lead.source = 'chatbot'; lead.score = score; lead.transcript = transcript.join('\n'); lead.url = location.href; lead.ts = new Date().toISOString();
     ga('generate_lead',{ source:'chatbot', cta_id:'chat_'+(emailPurpose||'lead'), lead_score:score, trade:lead.trade||'' });
     if(LEAD_ENDPOINT){ try{ fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)}); }catch(e){} }
   }
@@ -306,14 +304,14 @@
   function afterEmail(){
     submitLead();
     var hot = score>=40;
-    if(emailPurpose==='sample'){ bot("Sent! Check your inbox shortly. Want to send us the family you actually need? It's free."); ctaIntake(); }
-    else if(emailPurpose==='quote'){ bot("Perfect — you'll get a firm quote within 24 hours. Want to start now and get your first family free?"); ctaIntake(); }
+    if(emailPurpose==='sample'){ bot("Thanks — we'll get a sample to your inbox shortly. Want to run a pilot on your own drawings?"); ctaIntake(); }
+    else if(emailPurpose==='quote'){ bot("Perfect — we'll follow up within one business day to set up your pilot."); ctaIntake(); }
     else { bot("Thanks! We'll follow up shortly."); }
     if(hot){ bot('Since this looks time-sensitive, you can grab a slot directly: <a class="ab-cta" href="'+BOOKING_URL+'" target="_blank" rel="noopener" onclick="window.dataLayer&&dataLayer.push({event:\'chat_book_call\'})">Book a 15-min call →</a>'); }
   }
 
   function goIntake(){ ga('generate_lead',{source:'chatbot',cta_id:'chat_intake'}); window.open(INTAKE_URL,'_blank'); }
-  function ctaIntake(){ bot('<a class="ab-cta" href="'+INTAKE_URL+'" target="_blank" rel="noopener" onclick="window.dataLayer&&dataLayer.push({event:\'generate_lead\',cta_id:\'chat_intake\'})">Start my free family →</a>'); }
+  function ctaIntake(){ bot('<a class="ab-cta" href="'+INTAKE_URL+'" target="_blank" rel="noopener" onclick="window.dataLayer&&dataLayer.push({event:\'generate_lead\',cta_id:\'chat_intake\'})">Start a pilot →</a>'); }
 
   // ---- input handling ----
   function handle(text){

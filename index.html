@@ -14,7 +14,7 @@
 
 <!-- ═══ ANNOUNCE + HEADER ═══ -->
 <div class="announce">
-  <a href='/demo'><span class="tag">New</span> The 2026 BIM-to-Field Benchmark Report is here <span class="arr">→</span></a>
+  <a href='/demo'><span class="tag">New</span> Private beta is open — transformer families today, switchgear in development <span class="arr">→</span></a>
 </div>
 <header class="site">
   <div class="wrap nav">
@@ -38,12 +38,12 @@
   <div class="wrap">
     <span class="eyebrow">AI Revit Content Platform</span>
     <h1>From shop drawing to <em>field&#8209;ready</em> in minutes.</h1>
-    <p class="lead">APEX turns shop drawings, submittals, and manufacturer data into construction-ready Revit content — with clearance zones, embedded data, and survey points that export straight to the field.</p>
+    <p class="lead">APEX turns manufacturer shop-drawing PDFs into parametric Revit families — transformers today, switchgear in active development. Nobody else does this. Confidence-scored data, human-in-the-loop review, and survey points that export straight to the field.</p>
     <div class="hero-cta">
       <a class='btn btn-primary btn-lg' href='/demo'>Book a demo <span class="arr">→</span></a>
       <a class="btn btn-ghost btn-lg" href="#platform">See how it works</a>
     </div>
-    <div class="hero-note">Now in private beta · Built for Revit, ACC &amp; Trimble workflows</div>
+    <div class="hero-note">Now in private beta · Revit 2025 · Trimble-compatible CSV export</div>
 
     <div class="hero-shot reveal">
       <div class="sim" id="sim" data-state="idle">
@@ -51,7 +51,7 @@
         <!-- control bar -->
         <div class="sim-controls">
           <div class="sim-pick">
-            <span class="sim-step">Try it live — Apex Data Campus Alpha · submittal ABS-001</span>
+            <span class="sim-step">Product simulation — try it live · Apex Data Campus Alpha · submittal ABS-001</span>
             <div class="ts-tabs" id="simDisc" style="margin-top:0;margin-bottom:10px;">
               <button class="ts-tab active" data-disc="elec">⚡ Electrical</button>
               <button class="ts-tab" data-disc="mech">⚙ Mechanical</button>
@@ -129,14 +129,14 @@
                     <span class="rp-pt faint" style="left:84%;top:64%"></span>
                     <span class="rp-pt faint" style="left:64%;top:74%"></span>
                   </div>
-                  <span class="badge-gen"><span class="dot"></span>Generated in <span id="simTimer">47</span>s</span>
+                  <span class="badge-gen"><span class="dot"></span>Generated in <span id="simTimer">3</span> min · simulated</span>
                 </div>
               </div>
             </div>
 
             <!-- PARAMS -->
             <div class="panel params">
-              <div class="panel-head"><span class="pt">Parameters</span><span class="pb">LOD 400</span></div>
+              <div class="panel-head"><span class="pt">Parameters</span><span class="pb">Parametric</span></div>
               <div class="param-scroll" id="simParams">
                 <!-- idle skeleton -->
                 <div class="pskel" id="simSkel">
@@ -151,7 +151,7 @@
                 <div class="pfill" id="simFill"></div>
               </div>
               <div class="progress">
-                <div class="pl"><span>VALIDATION</span><span id="simChecks">0 / 8 checks</span></div>
+                <div class="pl"><span>VALIDATION</span><span id="simChecks">0 / 6 checks</span></div>
                 <div class="track"><div class="fill" id="simBar" style="width:0%"></div></div>
                 <button class="exp-btn" id="simExport" disabled>↳ Export field points (CSV)</button>
               </div>
@@ -164,6 +164,7 @@
           <div class="cd-head"><span id="simDrawerName">survey_points.csv</span><span id="simDrawerMeta">exporting…</span></div>
           <pre class="cd-body" id="simDrawerBody"></pre>
         </div>
+        <div class="hero-note" style="margin-top:12px;">Product simulation for illustration — timings and data are simulated. Real runs take minutes per family. Shipping today: transformer families; switchgear is in active development.</div>
       </div>
     </div>
   </div>
@@ -173,26 +174,14 @@
 <section class="partners pad-sm" id="partners">
   <div class="wrap">
     <div class="section-head center reveal" style="margin:0 auto;">
-      <span class="eyebrow">Partners</span>
-      <h2>Built with the contractors who set the standard.</h2>
-      <p class="lead">APEX is developed hand-in-hand with the BIM &amp; VDC departments at leading electrical contractors — so every tool is proven on real jobs before it ships.</p>
+      <span class="eyebrow">Development pilot</span>
+      <h2>Proven on real drawings before it ships.</h2>
+      <p class="lead">APEX is in private beta, developed through a hands-on pilot at Cache Valley Electric — the founder's electrical contracting firm — so every workflow is tested on real project drawings first.</p>
     </div>
     <div class="partner-grid reveal">
       <div class="partner">
         <div class="pwm cve"><span class="m">⚡</span><span class="t"><b>Cache Valley</b><i>ELECTRIC</i></span></div>
-        <div class="pl">Salt Lake, UT</div>
-      </div>
-      <div class="partner">
-        <div class="pwm taylor"><span class="m">T</span><span class="t"><b>Taylor</b><i>ELECTRIC</i></span></div>
-        <div class="pl">Salt Lake, UT</div>
-      </div>
-      <div class="partner">
-        <div class="pwm summit"><span class="m">▲</span><span class="t"><b>Summit</b><i>ELECTRIC</i></span></div>
-        <div class="pl">Logan, UT</div>
-      </div>
-      <div class="partner">
-        <div class="pwm dp"><span class="m">DP</span><span class="t"><b>DP&nbsp;Electric</b><i>PHOENIX</i></span></div>
-        <div class="pl">Tempe, AZ</div>
+        <div class="pl">Development pilot · founder's firm</div>
       </div>
     </div>
   </div>
@@ -204,12 +193,12 @@
     <div class="section-head center reveal">
       <span class="eyebrow on-dark">Why APEX</span>
       <h2 style="color:#fff;">Built to pay for itself on the first project.</h2>
-      <p class="lead">Stop building families by hand. Generate construction-ready content in seconds — and send it to the field without a rebuild.</p>
+      <p class="lead">Stop building families by hand. Generate parametric, validation-checked content in minutes — and send it to the field without a rebuild.</p>
     </div>
     <div class="stat-row reveal">
-      <div class="stat"><div class="sv">90<span class="u">%</span></div><div class="sl">Fewer modeling hours per project versus building families by hand.</div></div>
-      <div class="stat"><div class="sv">47<span class="u">s</span></div><div class="sl">Average time to generate a coordination-correct, data-rich family.</div></div>
-      <div class="stat"><div class="sv">0</div><div class="sl">Clashes on the first coordination pass — clearance zones built in.</div></div>
+      <div class="stat"><div class="sv">96.5<span class="u">/100</span></div><div class="sl">Mean extraction accuracy across 20 real manufacturer drawings, measured by our internal eval harness.</div></div>
+      <div class="stat"><div class="sv">19</div><div class="sl">Human-verified transformer families — each passing 6/6 validation checks in Revit 2025.</div></div>
+      <div class="stat"><div class="sv">Minutes</div><div class="sl">Per family, versus the 2–4 hours manual modeling typically takes.</div></div>
     </div>
   </div>
 </section>
@@ -228,9 +217,9 @@
       <div class="frow-copy">
         <div class="ficon">✦</div>
         <h3>AI family generation</h3>
-        <p>Drop in a shop drawing, submittal, or cut sheet. APEX reads the geometry, tags, and dimensions and builds a coordination-correct Revit family — in seconds, not hours.</p>
-        <div class="chips"><span class="chip">PDF &amp; submittals</span><span class="chip">Parametric</span><span class="chip">LOD 400</span></div>
-        <a class="linkmore" href="#">Explore the generator <span class="arr">→</span></a>
+        <p>Drop in a manufacturer shop-drawing PDF. APEX reads the geometry, tags, and dimensions and builds a parametric, validation-checked Revit family — in minutes, not hours. Transformers today; switchgear in active development.</p>
+        <div class="chips"><span class="chip">PDF &amp; submittals</span><span class="chip">Parametric</span><span class="chip">Validation-checked</span></div>
+        <a class="linkmore" href="/product">Explore the generator <span class="arr">→</span></a>
       </div>
       <div class="frow-media">
         <div class="media-frame dark">
@@ -265,7 +254,7 @@
                   <span class="iso-pt" style="left:30%;top:44%"></span><span class="iso-pt" style="left:70%;top:44%"></span>
                   <span class="iso-pt" style="left:30%;top:70%"></span><span class="iso-pt" style="left:70%;top:70%"></span>
                   <span class="rv-vlabel">3D View · {3D}</span>
-                  <span class="rv-badge gen"><span class="dot"></span>Generated in 47s</span>
+                  <span class="rv-badge gen"><span class="dot"></span>Generated in minutes</span>
                 </div>
               </div>
             </div>
@@ -279,9 +268,9 @@
       <div class="frow-copy">
         <div class="ficon">✛</div>
         <h3>Survey &amp; field layout</h3>
-        <p>Survey points are nested inside every family and export to a clean CSV — straight to Trimble and Autodesk field formats. The installed layout matches the model, exactly.</p>
-        <div class="chips"><span class="chip">Trimble Field Points</span><span class="chip">Autodesk Survey Points</span><span class="chip">CSV export</span></div>
-        <a class="linkmore" href="#">See survey &amp; layout <span class="arr">→</span></a>
+        <p>Survey points are nested inside every family and export to a clean CSV compatible with Trimble field workflows — so the field lays out exactly what was modeled.</p>
+        <div class="chips"><span class="chip">Nested survey points</span><span class="chip">Trimble-compatible</span><span class="chip">CSV export</span></div>
+        <a class="linkmore" href="/survey">See survey &amp; layout <span class="arr">→</span></a>
       </div>
       <div class="frow-media">
         <div class="media-frame dark">
@@ -337,10 +326,10 @@
     <div class="frow reveal">
       <div class="frow-copy">
         <div class="ficon">✓</div>
-        <h3>Validation &amp; clearance</h3>
-        <p>Every family runs through automated checks — geometry, embedded data, and real maintenance clearance zones — so conflicts are caught in the model, before they ever reach the field.</p>
-        <div class="chips"><span class="chip">Clearance zones</span><span class="chip">Data completeness</span><span class="chip">Clash-ready</span></div>
-        <a class="linkmore" href="#">How validation works <span class="arr">→</span></a>
+        <h3>Validation &amp; human review</h3>
+        <p>Every family runs six automated validation checks, and every extracted field carries a confidence score — amber flags low confidence, and nothing enters the model unapproved. Every AI write is a named Revit transaction: one Ctrl+Z undoes it.</p>
+        <div class="chips"><span class="chip">6 validation checks</span><span class="chip">Confidence-scored</span><span class="chip">Undoable transactions</span></div>
+        <a class="linkmore" href="#validate">How validation works <span class="arr">→</span></a>
       </div>
       <div class="frow-media">
         <div class="media-frame dark">
@@ -355,8 +344,8 @@
                 <div class="rv-side">
                   <div class="rv-pal">Properties</div>
                   <div class="rv-prow"><span class="k">Family</span><span class="v hot">APS-MV-001</span></div>
-                  <div class="rv-prow"><span class="k">Checks</span><span class="v">8 total</span></div>
-                  <div class="rv-prow"><span class="k">Result</span><span class="v">7 pass</span></div>
+                  <div class="rv-prow"><span class="k">Checks</span><span class="v">6 total</span></div>
+                  <div class="rv-prow"><span class="k">Result</span><span class="v">6 pass</span></div>
                   <div class="rv-pal">Project Browser</div>
                   <div class="rv-tree">
                     <span class="on">APEX Validation</span>
@@ -370,7 +359,7 @@
                     <div class="val-row"><span class="vk">✓</span>Maintenance clearance zone<span class="vstat">PASS</span></div>
                     <div class="val-row"><span class="vk">✓</span>Voltage &amp; system data<span class="vstat">PASS</span></div>
                     <div class="val-row"><span class="vk">✓</span>Survey points nested<span class="vstat">4 / 4</span></div>
-                    <div class="val-row warn"><span class="vk">!</span>Procurement data<span class="vstat">REVIEW</span></div>
+                    <div class="val-row warn"><span class="vk">!</span>Low-confidence field<span class="vstat">REVIEW</span></div>
                   </div>
                 </div>
               </div>
@@ -385,13 +374,13 @@
       <div class="frow-copy">
         <div class="ficon">≣</div>
         <h3>Project intelligence</h3>
-        <p>Track every family, version, and validation across the project. Push content straight into Autodesk Construction Cloud and BIM 360, with full version control and rollback.</p>
-        <div class="chips"><span class="chip">ACC &amp; BIM 360 sync</span><span class="chip">Version control</span><span class="chip">Dashboards</span></div>
-        <a class="linkmore" href="#">Explore intelligence <span class="arr">→</span></a>
+        <p><strong>On the roadmap.</strong> Today APEX pulls files from Autodesk Construction Cloud and BIM 360; deeper sync, version tracking, and an in-Revit equipment-register pane are in development. Here's where it's headed.</p>
+        <div class="chips"><span class="chip">Roadmap — in development</span><span class="chip">ACC &amp; BIM 360 file pull today</span></div>
+        <a class="linkmore" href="/integrations">See integration status <span class="arr">→</span></a>
       </div>
       <div class="frow-media">
         <div class="media-frame dark">
-          <div class="mbar"><div class="winicon" style="width:13px;height:13px;border-width:1.5px;"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--on-dark-mid);margin-left:8px;">APEX Console — Autodesk Construction Cloud</span><div class="traffic"><i></i><i></i><i></i></div></div>
+          <div class="mbar"><div class="winicon" style="width:13px;height:13px;border-width:1.5px;"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--on-dark-mid);margin-left:8px;">APEX Console — concept preview (in development)</span><div class="traffic"><i></i><i></i><i></i></div></div>
           <div class="mbody" style="padding:0;">
             <div class="revit-ui">
               <div class="rv-ribbon">
@@ -414,9 +403,9 @@
                 <div class="rv-view">
                   <div class="dash dk">
                     <div class="dtop">
-                      <div class="kpi"><div class="kv">1,284</div><div class="kl">Families generated</div></div>
-                      <div class="kpi"><div class="kv">98<span class="u">%</span></div><div class="kl">Validation pass rate</div></div>
-                      <div class="kpi"><div class="kv">312<span class="u">h</span></div><div class="kl">Hours saved</div></div>
+                      <div class="kpi"><div class="kv">19</div><div class="kl">Families verified</div></div>
+                      <div class="kpi"><div class="kv">6<span class="u">/6</span></div><div class="kl">Validation checks</div></div>
+                      <div class="kpi"><div class="kv">96.5</div><div class="kl">Extraction score</div></div>
                     </div>
                     <div class="chart">
                       <div class="bar" style="height:100%"><i style="height:46%"></i></div>
@@ -443,9 +432,9 @@
   <div class="ab-glow"></div>
   <div class="wrap">
     <div class="section-head center reveal" style="margin:0 auto;">
-      <span class="eyebrow">As-built intelligence</span>
+      <span class="eyebrow">Roadmap · Phase 3</span>
       <h2>From design intent to verified as-built.</h2>
-      <p class="lead">Most BIM models become inaccurate the moment construction begins. APEX keeps your model aligned with field reality — connecting BIM, survey, layout, and as-built data into a single workflow.</p>
+      <p class="lead">Most BIM models become inaccurate the moment construction begins. This is where APEX is headed: drawing-revision diffing and an as-built verification loop that keeps the model aligned with field reality. The first three steps ship today; the rest is Phase 3 of our roadmap.</p>
     </div>
 
     <!-- workflow rail -->
@@ -455,9 +444,9 @@
         <div class="ab-step"><div class="ab-ico">▤</div><div class="ab-lbl">Shop Drawings</div><p>PDFs, submittals &amp; manufacturer data in.</p></div>
         <div class="ab-step"><div class="ab-ico">✦</div><div class="ab-lbl">AI Family Generation</div><p>Intelligent Revit families, built automatically.</p></div>
         <div class="ab-step"><div class="ab-ico">✛</div><div class="ab-lbl">Survey Point Creation</div><p>Layout points nested in every family.</p></div>
-        <div class="ab-step"><div class="ab-ico">◎</div><div class="ab-lbl">Field Layout</div><p>Points exported to total stations &amp; robots.</p></div>
-        <div class="ab-step"><div class="ab-ico">✓</div><div class="ab-lbl">As-Built Verification</div><p>Field data compared to design intent.</p></div>
-        <div class="ab-step"><div class="ab-ico">⬡</div><div class="ab-lbl">Updated BIM Model</div><p>Model kept accurate through turnover.</p></div>
+        <div class="ab-step"><div class="ab-ico">◎</div><div class="ab-lbl">Field Layout</div><p>CSV export compatible with Trimble field workflows.</p></div>
+        <div class="ab-step"><div class="ab-ico">✓</div><div class="ab-lbl">As-Built Verification</div><p>Phase 3 — field data compared to design intent.</p></div>
+        <div class="ab-step"><div class="ab-ico">⬡</div><div class="ab-lbl">Updated BIM Model</div><p>Phase 3 — model kept accurate through turnover.</p></div>
       </div>
     </div>
 
@@ -465,23 +454,23 @@
     <div class="ab-cards reveal">
       <div class="ab-card">
         <div class="ci">✦</div>
-        <h3>AI Family Generation</h3>
-        <p>Convert shop drawings, submittals, and manufacturer data into intelligent Revit families — automatically.</p>
+        <h3>AI Family Generation — today</h3>
+        <p>Convert manufacturer shop-drawing PDFs into parametric Revit families — transformers now, switchgear in active development.</p>
       </div>
       <div class="ab-card">
         <div class="ci">✛</div>
-        <h3>Survey &amp; Layout Intelligence</h3>
-        <p>Generate Trimble, Leica, Topcon, and Autodesk survey points directly from BIM content.</p>
+        <h3>Survey &amp; Layout — today</h3>
+        <p>Survey points nested in every family, exported as CSV compatible with Trimble field workflows. Leica and Topcon support is planned.</p>
       </div>
       <div class="ab-card">
         <div class="ci">◎</div>
-        <h3>As-Built Verification</h3>
-        <p>Compare field-collected survey data against design intent and flag deviations automatically.</p>
+        <h3>As-Built Verification — Phase 3</h3>
+        <p>Will compare field-collected survey data against design intent and flag deviations automatically.</p>
       </div>
       <div class="ab-card">
         <div class="ci">⬡</div>
-        <h3>Digital Twin Ready</h3>
-        <p>Maintain continuously accurate BIM models throughout construction and turnover.</p>
+        <h3>Revision Diffing — Phase 3</h3>
+        <p>Drawing-revision diffing to keep BIM models accurate through construction and turnover.</p>
       </div>
     </div>
 
@@ -492,7 +481,7 @@
 
     <!-- CTAs -->
     <div class="ab-cta reveal">
-      <a class="btn btn-eb btn-lg" href="#">Learn about As-Built Intelligence <span class="arr">→</span></a>
+      <a class="btn btn-eb btn-lg" href="#toolset">See the full roadmap <span class="arr">→</span></a>
       <a class="btn btn-ghost on-dark btn-lg" href="#demo">Book a demo</a>
     </div>
   </div>
@@ -502,13 +491,14 @@
 <section class="pad-sm" id="toolset">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Modeling toolset</span>
-      <h2>Detailing in Revit, done right.</h2>
-      <p class="lead">Beyond AI generation, APEX ships an all-in-one Revit add-in — the everyday modeling tools MEP teams reach for, built by people who've actually detailed and installed the work.</p>
+      <span class="eyebrow">Roadmap</span>
+      <h2>The modeling toolset we're building next.</h2>
+      <p class="lead">Beyond family generation, APEX is building toward an all-in-one Revit add-in — the everyday modeling tools MEP teams reach for. Everything below is roadmap: Phase 2, in design now. Shipping today: transformer family generation, nested survey points, and Trimble-compatible CSV export — with per-section switchgear geometry in active development.</p>
       <div class="ts-tabs" id="tsTabs">
         <button class="ts-tab active" data-disc="elec">⚡ Electrical</button>
         <button class="ts-tab" data-disc="mech">⚙ Mechanical</button>
       </div>
+      <div class="chips" style="margin-top:14px;"><span class="chip">Phase 2 — in design</span><span class="chip">Not yet shipped</span></div>
     </div>
 
     <div class="toolset reveal" data-disc="elec">
@@ -548,16 +538,16 @@
   <div class="wrap">
     <div class="frow flip reveal">
       <div class="frow-copy">
-        <span class="eyebrow">Tool spotlight · Auto-Route Conduit</span>
-        <h3 style="margin-top:18px;">From run schedule to routed model — automatically.</h3>
-        <p>Point APEX at a conduit run schedule and it routes the whole rack: parallel runs, smart bends at every turn, pull boxes at break points, and nested layout points along the path — clash-checked as it goes.</p>
+        <span class="eyebrow">Roadmap spotlight · Auto-Route Conduit · Phase 2 — in design</span>
+        <h3 style="margin-top:18px;">From run schedule to routed model — the way we're designing it.</h3>
+        <p>The plan: point APEX at a conduit run schedule and it routes the whole rack — parallel runs, smart bends at every turn, pull boxes at break points, and nested layout points along the path. In design now as part of Phase 2; not yet shipped.</p>
         <div class="chips">
+          <span class="chip">Phase 2 — in design</span>
           <span class="chip">Schedule-driven</span>
           <span class="chip">Smart bends</span>
-          <span class="chip">Pull boxes</span>
           <span class="chip">Layout points</span>
         </div>
-        <a class="linkmore" href="#">Watch the workflow <span class="arr">→</span></a>
+        <a class="linkmore" href="/demo">See it live — book a demo <span class="arr">→</span></a>
       </div>
       <div class="frow-media">
         <div class="media-frame dark">
@@ -607,7 +597,7 @@
                   <div class="cr-dimline"></div>
                   <span class="cr-dimtxt">1067 mm</span>
                   <span class="rv-vlabel">Section · A-A · 1:10</span>
-                  <span class="rv-badge gen"><span class="dot"></span>Auto-routed · clash-free</span>
+                  <span class="rv-badge gen"><span class="dot"></span>Concept preview · Phase 2</span>
                 </div>
               </div>
             </div>
@@ -619,31 +609,31 @@
 </section>
 
 <!-- ═══ PROOF ═══ -->
-<section class="proof pad" id="proof">
+<section class="proof pad" id="validate">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">From the field</span>
-      <h2>Built for the people who live in the model.</h2>
-      <p class="lead">What teams gain when content is generated right the first time.</p>
+      <span class="eyebrow">How we validate</span>
+      <h2>Numbers we can show you, not numbers we made up.</h2>
+      <p class="lead">Every claim on this page traces back to one of three things: a measured eval, a human-verified family, or a workflow you can watch live.</p>
     </div>
     <div class="proof-grid reveal">
       <div class="pcard">
-        <div class="pmetric">40<span class="u">+ hrs</span></div>
-        <div class="ptitle">Reclaimed per project</div>
-        <p>Hours that used to go into building and fixing families by hand — redirected to coordination that actually moves the schedule.</p>
-        <div class="pwho">Electrical · VDC coordination</div>
+        <div class="pmetric">96.5<span class="u">/100</span></div>
+        <div class="ptitle">Eval harness on real drawings</div>
+        <p>Mean extraction accuracy across 20 real manufacturer shop drawings, scored by our internal eval harness — re-run on every pipeline change.</p>
+        <div class="pwho">Measured · internal eval harness</div>
       </div>
       <div class="pcard">
-        <div class="pmetric">1&#8209;click</div>
-        <div class="ptitle">Model to field</div>
-        <p>Nested survey points export straight to a layout CSV, so the crew sets out exactly what the coordinator modeled.</p>
-        <div class="pwho">Prefab · field layout</div>
+        <div class="pmetric">19</div>
+        <div class="ptitle">Human-verified families</div>
+        <p>Transformer families generated from real drawings and verified by a human in Revit 2025 — each passing 6/6 automated validation checks.</p>
+        <div class="pwho">Verified · Revit 2025</div>
       </div>
       <div class="pcard">
-        <div class="pmetric">0</div>
-        <div class="ptitle">First-pass clashes</div>
-        <p>Real clearance zones modeled into every family mean conflicts surface in clash detection, not during installation.</p>
-        <div class="pwho">General contractor · coordination</div>
+        <div class="pmetric">Ctrl+Z</div>
+        <div class="ptitle">Human-in-the-loop, undoable</div>
+        <p>Extracted fields are confidence-scored — amber means low confidence — and nothing enters the model unapproved. Every AI write is a named Revit transaction: one Ctrl+Z undoes it.</p>
+        <div class="pwho">Built in · review workflow</div>
       </div>
     </div>
   </div>
@@ -655,19 +645,19 @@
     <div class="section-head center reveal">
       <span class="eyebrow">Integrations</span>
       <h2>Connect your workflow.</h2>
-      <p class="lead">APEX fits the tools your team already runs — from authoring to the field.</p>
+      <p class="lead">Live today: the APEX add-in for Revit 2025, Trimble-compatible CSV export, and basic ACC / BIM 360 file pull. The rest is planned — and labeled that way.</p>
     </div>
   </div>
   <div class="marquee reveal">
     <div class="mtrack" id="mtrack">
-      <span class="itile"><span class="hex"></span>Autodesk Revit</span>
-      <span class="itile"><span class="hex"></span>Construction Cloud</span>
-      <span class="itile"><span class="hex"></span>BIM 360</span>
-      <span class="itile"><span class="hex"></span>Trimble</span>
-      <span class="itile"><span class="hex"></span>Navisworks</span>
-      <span class="itile"><span class="hex"></span>Procore</span>
-      <span class="itile"><span class="hex"></span>Bluebeam</span>
-      <span class="itile"><span class="hex"></span>ReCap</span>
+      <span class="itile"><span class="hex"></span>Revit 2025 · live</span>
+      <span class="itile"><span class="hex"></span>Trimble-compatible CSV · live</span>
+      <span class="itile"><span class="hex"></span>ACC file pull · live</span>
+      <span class="itile"><span class="hex"></span>BIM 360 file pull · live</span>
+      <span class="itile"><span class="hex"></span>Navisworks · planned</span>
+      <span class="itile"><span class="hex"></span>Procore · planned</span>
+      <span class="itile"><span class="hex"></span>Bluebeam · planned</span>
+      <span class="itile"><span class="hex"></span>ReCap · planned</span>
     </div>
   </div>
 </section>
@@ -676,11 +666,11 @@
 <section class="awards pad-sm">
   <div class="wrap">
     <div class="row">
-      <div class="award"><div class="medal">★</div>Backed by<br />construction pros</div>
-      <div class="award"><div class="medal">◷</div>47s avg<br />generation</div>
-      <div class="award"><div class="medal">⛉</div>Enterprise-grade<br />data security</div>
-      <div class="award"><div class="medal">⤴</div>Trimble &amp; Autodesk<br />field-ready</div>
-      <div class="award"><div class="medal">◎</div>100% as-modeled<br />layout match</div>
+      <div class="award"><div class="medal">★</div>Built by<br />construction pros</div>
+      <div class="award"><div class="medal">◷</div>Minutes<br />per family</div>
+      <div class="award"><div class="medal">⛉</div>96.5/100<br />extraction accuracy</div>
+      <div class="award"><div class="medal">⤴</div>Trimble-compatible<br />CSV export</div>
+      <div class="award"><div class="medal">◎</div>19 human-verified<br />families</div>
     </div>
   </div>
 </section>
@@ -692,10 +682,10 @@
     <div class="inner reveal">
       <span class="eyebrow on-dark" style="justify-content:center;">Get started</span>
       <h2>See APEX turn your drawing into a family.</h2>
-      <p>Book a 20-minute demo and bring a real shop drawing. We'll generate a construction-ready family live — clearance zones, embedded data, and field-ready survey points included.</p>
+      <p>Book a 20-minute demo and bring a real transformer shop drawing. We'll generate a parametric, validation-checked family live — with embedded data and nested survey points ready for a Trimble-compatible CSV export.</p>
       <div class="row">
-        <a class="btn btn-primary btn-lg" href="#">Book a demo <span class="arr">→</span></a>
-        <a class="btn btn-ghost on-dark btn-lg" href="#">Join the waitlist</a>
+        <a class="btn btn-primary btn-lg" href="/demo">Book a demo <span class="arr">→</span></a>
+        <a class="btn btn-ghost on-dark btn-lg" href="/waitlist">Join the waitlist</a>
       </div>
     </div>
   </div>
@@ -778,7 +768,7 @@
           ['Location & clearance', [['Location', 'Campus Alpha · L2', false], ['Clearance zone', '1830 mm', true], ['Survey points', '4 nested', false]]],
           ['Integration', [['Trimble export', 'Enabled ✓', false], ['ACC integration', 'Enabled ✓', false]]]
         ],
-        pts: 4, time: 51, prefix: 'MV',
+        pts: 4, time: 3, prefix: 'MV',
         csv: [['P1', '154820.4', '49210.1', '3.05'], ['P2', '154821.9', '49211.6', '3.05'], ['P3', '154820.4', '49212.8', '3.05'], ['P4', '154821.9', '49214.2', '3.05']]
       },
       lv: {
@@ -790,7 +780,7 @@
           ['Location & clearance', [['Location', 'Campus Alpha · L2', false], ['Clearance zone', '1067 mm', true], ['Survey points', '4 nested', false]]],
           ['Integration', [['Trimble export', 'Enabled ✓', false], ['ACC integration', 'Enabled ✓', false]]]
         ],
-        pts: 4, time: 44, prefix: 'LV',
+        pts: 4, time: 2, prefix: 'LV',
         csv: [['P1', '154833.0', '49250.4', '3.10'], ['P2', '154835.6', '49253.1', '3.10'], ['P3', '154833.0', '49256.0', '3.10'], ['P4', '154835.6', '49258.7', '3.10']]
       },
       xfr: {
@@ -802,7 +792,7 @@
           ['Location & clearance', [['Location', 'Campus Alpha · Yard', false], ['Clearance zone', '1219 mm', true], ['Survey points', '4 nested', false]]],
           ['Integration', [['Trimble export', 'Enabled ✓', false], ['ACC integration', 'Enabled ✓', false]]]
         ],
-        pts: 4, time: 47, prefix: 'XF',
+        pts: 4, time: 3, prefix: 'XF',
         csv: [['P1', '154810.2', '49200.0', '3.45'], ['P2', '154811.7', '49201.5', '3.45'], ['P3', '154813.2', '49203.0', '3.45'], ['P4', '154810.2', '49204.5', '3.45']]
       },
       ahu: {
@@ -814,7 +804,7 @@
           ['Location & clearance', [['Location', 'Campus Alpha · L3', false], ['Clearance zone', '1067 mm', true], ['Survey points', '4 nested', false]]],
           ['Integration', [['Trimble export', 'Enabled ✓', false], ['ACC integration', 'Enabled ✓', false]]]
         ],
-        pts: 4, time: 49, prefix: 'AH',
+        pts: 4, time: 3, prefix: 'AH',
         csv: [['P1', '154840.1', '49270.2', '3.30'], ['P2', '154842.6', '49272.8', '3.30'], ['P3', '154840.1', '49275.4', '3.30'], ['P4', '154842.6', '49278.0', '3.30']]
       },
       chp: {
@@ -826,7 +816,7 @@
           ['Location & clearance', [['Location', 'Campus Alpha · Plant', false], ['Clearance zone', '914 mm', true], ['Survey points', '4 nested', false]]],
           ['Integration', [['Trimble export', 'Enabled ✓', false], ['ACC integration', 'Enabled ✓', false]]]
         ],
-        pts: 4, time: 43, prefix: 'CH',
+        pts: 4, time: 2, prefix: 'CH',
         csv: [['P1', '154850.4', '49290.1', '3.05'], ['P2', '154852.0', '49292.6', '3.05'], ['P3', '154850.4', '49295.0', '3.05'], ['P4', '154852.0', '49297.5', '3.05']]
       },
       crac: {
@@ -838,7 +828,7 @@
           ['Location & clearance', [['Location', 'Campus Alpha · Data Hall', false], ['Clearance zone', '1067 mm', true], ['Survey points', '4 nested', false]]],
           ['Integration', [['Trimble export', 'Enabled ✓', false], ['ACC integration', 'Enabled ✓', false]]]
         ],
-        pts: 4, time: 46, prefix: 'CR',
+        pts: 4, time: 2, prefix: 'CR',
         csv: [['P1', '154860.0', '49310.4', '3.10'], ['P2', '154861.6', '49312.9', '3.10'], ['P3', '154860.0', '49315.3', '3.10'], ['P4', '154861.6', '49317.8', '3.10']]
       }
     };
@@ -860,7 +850,7 @@
     const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
 
     const VAL_CHECKS = ['Geometry & connectors', 'Maintenance clearance zone', 'Voltage & system data',
-      'Connector parameters', 'Shared parameters', 'Survey points nested', 'Naming standard', 'Procurement data'];
+      'Shared parameters', 'Survey points nested', 'Naming standard'];
 
     function loadSample(key) {
       const s = SAMPLES[key];
@@ -910,7 +900,7 @@
       els.outBadge.textContent = 'Idle';
       els.outBadge.classList.remove('on');
       if (SAMPLES[current]) buildParams(SAMPLES[current], false);
-      els.checks.textContent = '0 / 8 checks';
+      els.checks.textContent = '0 / 6 checks';
       els.bar.style.width = '0%';
       els.export.disabled = true;
       els.run.hidden = false;
@@ -962,10 +952,10 @@
 
       // validation checks tick up
       els.status.textContent = 'Running validation…';
-      for (let i = 1; i <= 8; i++) {
+      for (let i = 1; i <= 6; i++) {
         await wait(140);
-        els.checks.textContent = i + ' / 8 checks';
-        els.bar.style.width = (i / 8 * 100) + '%';
+        els.checks.textContent = i + ' / 6 checks';
+        els.bar.style.width = (i / 6 * 100) + '%';
       }
       els.status.textContent = 'Done — family is field-ready ✓';
       els.export.disabled = false;
@@ -1089,8 +1079,8 @@
 (function(){
   // ---------- CONFIG ----------
   var INTAKE_URL = 'https://intake.apexbim.co';
-  var BOOKING_URL = 'https://calendly.com/hayden-apexbim/30min'; // Calendly booking link
-  var LEAD_ENDPOINT = ''; // lead storage not wired (chat-only); GA4 generate_lead still fires
+  var BOOKING_URL = 'https://calendly.com/YOUR-HANDLE/intro-call'; // TODO: your Calendly link
+  var LEAD_ENDPOINT = '/.netlify/functions/lead'; // wired → stores leads in Supabase (deploy netlify-functions-lead.js)
   var CHAT_ENDPOINT = '/.netlify/functions/chat'; // wired → LLM answers (deploy netlify-functions-chat.js + set ANTHROPIC_API_KEY). Empty string = FAQ only.
   // ----------------------------
 
@@ -1122,9 +1112,9 @@
   function close(){ panel.classList.remove('open'); document.getElementById('ab-launch').style.display='flex'; }
 
   function greet(){
-    bot("Hey — I'm the Apex assistant. I can give you a ballpark price, send a sample family, answer a question, or set up a call. What do you need?");
+    bot("Hey — I'm the Apex assistant. I can explain how the private beta and pilot-first pricing work, answer a question, or set up a call. What do you need?");
     chips([
-      {label:'💵 Get a price', go:flowPrice},
+      {label:'💵 How pricing works', go:flowPrice},
       {label:'📐 See a sample', go:flowSample},
       {label:'❓ Ask a question', go:flowAsk},
       {label:'📞 Talk to a human', go:flowHuman}
@@ -1133,33 +1123,27 @@
 
   // ---- PRICE FLOW ----
   function flowPrice(){
-    score+=20; bot("Quick questions and I'll give you a ballpark. What trade is the equipment?");
-    chips(['Electrical','Mechanical / HVAC','Plumbing','Structural / other'].map(function(t){return {label:t,go:function(){lead.trade=t; askQty();}};}));
+    score+=20; bot("APEX is in private beta with pilot-first pricing: run a pilot on your next project's drawings, and we set pricing together after you've seen it work on your own drawings. What trade is the equipment?");
+    chips(['Electrical','Mechanical / HVAC','Plumbing','Structural / other'].map(function(t){return {label:t,go:function(){lead.trade=t; quote();}};}));
   }
-  function askQty(){ bot("How many families do you need?");
-    chips(['Just 1','2–5','6–20','20+'].map(function(q){return {label:q,go:function(){lead.qty=q; if(q!=='Just 1')score+=15; askLOD();}};})); }
-  function askLOD(){ bot("What level of detail (LOD)?");
-    chips(['LOD 200','LOD 300','LOD 350','LOD 400','Not sure'].map(function(l){return {label:l,go:function(){lead.lod=l; quote();}};})); }
   function quote(){
-    var base = (lead.lod==='LOD 400'?'$400–$600':lead.lod==='LOD 350'?'$300–$500':'$150–$350');
-    bot("Ballpark for "+(lead.trade)+" at "+(lead.lod)+": <strong>"+base+" per family</strong>, flat rate, ~5-day turnaround. And your <strong>first family is free</strong>. Want a firm quote? Drop your email and I'll have one to you within 24 hours.");
+    bot("Thanks — for "+(lead.trade)+", the next step is a pilot on your own drawings. Today APEX generates transformer families; switchgear is in active development. Drop your email and we'll set it up.");
     askEmail('quote');
   }
 
   // ---- SAMPLE FLOW ----
-  function flowSample(){ score+=15; bot("Happy to. Which trade should the sample cover?");
-    chips(['Electrical','Mechanical','Plumbing'].map(function(t){return {label:t,go:function(){lead.trade=t; bot("Great — drop your email and I'll send a sample "+t.toLowerCase()+" family (.rfa + type catalog) you can open in Revit."); askEmail('sample');}};})); }
+  function flowSample(){ score+=15; bot("Happy to — today APEX generates transformer families (switchgear is in active development). Drop your email and we'll send a human-verified sample transformer family (.rfa) you can open in Revit 2025."); askEmail('sample'); }
 
   // ---- ASK FLOW (scripted FAQ + optional AI) ----
   function flowAsk(){ bot("Ask away — turnaround, pricing, file formats, IP, Revit versions, anything. Type your question below."); }
 
   var FAQ=[
-    [/(how fast|turnaround|how long|deliver)/i,"Standard turnaround is 5 business days; a 48-hour rush is available for +35%."],
-    [/(price|cost|how much|\$)/i,"Flat-rate $150–$600 per family by complexity and LOD — quoted in 24 hours, no hourly billing. Your first family is free."],
+    [/(how fast|turnaround|how long|deliver)/i,"APEX generates a family from a manufacturer shop-drawing PDF in minutes — versus the 2–4 hours it typically takes to model one by hand."],
+    [/(price|cost|how much|\$)/i,"We're in private beta with pilot-first pricing: run a pilot on your next project's drawings, and pricing is set together after you've seen it work on your own drawings."],
     [/(own|ip|nda|confiden|rights)/i,"You own every family we build, and we sign an NDA on request — your drawings stay confidential."],
-    [/(revit version|2021|2022|2023|2024|2025|2026|which version)/i,"We deliver families compatible with Revit 2021 through 2026."],
-    [/(format|rfa|type catalog|deliver what|connectors|parametr)/i,"You get a parametric, properly hosted .rfa with type catalog and shared parameters, tested in a live project, plus two revision rounds."],
-    [/(start|begin|need from me|how do i)/i,"Send shop drawings, product data/specs, the LOD you need, and your deadline — and your first family is free."],
+    [/(revit version|2021|2022|2023|2024|2025|2026|which version)/i,"Families are generated and validation-checked in Revit 2025 today; support for more versions is on the roadmap."],
+    [/(format|rfa|type catalog|deliver what|connectors|parametr)/i,"You get a parametric .rfa with shared parameters and nested survey points — every verified family passes 6/6 automated validation checks in Revit 2025."],
+    [/(start|begin|need from me|how do i)/i,"Send manufacturer shop-drawing PDFs — transformers today, switchgear in active development — and we'll set up a pilot on your own drawings."],
     [/(where|located|based|utah)/i,"We're based in Millville, Utah, serving MEP and electrical contractors nationwide."]
   ];
 
@@ -1168,10 +1152,14 @@
   async function askAI(message){
     if(!CHAT_ENDPOINT) return null;
     try{
+      var ac = ('AbortController' in window) ? new AbortController() : null;
+      var tm = ac ? setTimeout(function(){ ac.abort(); }, 4000) : null;
       var res = await fetch(CHAT_ENDPOINT, {
         method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ message: message, transcript: transcript.slice(-10) })
+        body: JSON.stringify({ message: message, transcript: transcript.slice(-10) }),
+        signal: ac ? ac.signal : undefined
       });
+      if(tm) clearTimeout(tm);
       if(!res.ok) return null;
       var j = await res.json();
       return (j && j.reply) ? j.reply : null;
@@ -1182,10 +1170,10 @@
     var ai=null; try{ ai=await askAI(text); }catch(e){}
     if(ai){ bot(ai); return; }
     for(var i=0;i<FAQ.length;i++){ if(FAQ[i][0].test(text)){ bot(FAQ[i][1]); offerNext(); return; } }
-    bot("Good question — I'll loop in the team. Want to leave your email so we can answer properly, or jump straight to a free family?");
-    chips([{label:'Leave my email',go:function(){askEmail('question');}},{label:'Start a free family',go:goIntake}]);
+    bot("Good question — I'll loop in the team. Want to leave your email so we can answer properly, or jump straight to a pilot on your own drawings?");
+    chips([{label:'Leave my email',go:function(){askEmail('question');}},{label:'Start a pilot',go:goIntake}]);
   }
-  function offerNext(){ chips([{label:'Get a price',go:flowPrice},{label:'Start a free family',go:goIntake},{label:'Talk to a human',go:flowHuman}]); }
+  function offerNext(){ chips([{label:'Get a price',go:flowPrice},{label:'Start a pilot',go:goIntake},{label:'Talk to a human',go:flowHuman}]); }
 
   // ---- HUMAN / BOOK ----
   function flowHuman(){ score+=25; bot("You got it. What's your name?"); awaiting='name'; }
@@ -1196,7 +1184,7 @@
   function validEmail(e){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e); }
 
   function submitLead(){
-    lead.score = score; lead.transcript = transcript.join('\n'); lead.url = location.href; lead.ts = new Date().toISOString();
+    lead.source = 'chatbot'; lead.score = score; lead.transcript = transcript.join('\n'); lead.url = location.href; lead.ts = new Date().toISOString();
     ga('generate_lead',{ source:'chatbot', cta_id:'chat_'+(emailPurpose||'lead'), lead_score:score, trade:lead.trade||'' });
     if(LEAD_ENDPOINT){ try{ fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)}); }catch(e){} }
   }
@@ -1204,14 +1192,14 @@
   function afterEmail(){
     submitLead();
     var hot = score>=40;
-    if(emailPurpose==='sample'){ bot("Sent! Check your inbox shortly. Want to send us the family you actually need? It's free."); ctaIntake(); }
-    else if(emailPurpose==='quote'){ bot("Perfect — you'll get a firm quote within 24 hours. Want to start now and get your first family free?"); ctaIntake(); }
+    if(emailPurpose==='sample'){ bot("Thanks — we'll get a sample to your inbox shortly. Want to run a pilot on your own drawings?"); ctaIntake(); }
+    else if(emailPurpose==='quote'){ bot("Perfect — we'll follow up within one business day to set up your pilot."); ctaIntake(); }
     else { bot("Thanks! We'll follow up shortly."); }
     if(hot){ bot('Since this looks time-sensitive, you can grab a slot directly: <a class="ab-cta" href="'+BOOKING_URL+'" target="_blank" rel="noopener" onclick="window.dataLayer&&dataLayer.push({event:\'chat_book_call\'})">Book a 15-min call →</a>'); }
   }
 
   function goIntake(){ ga('generate_lead',{source:'chatbot',cta_id:'chat_intake'}); window.open(INTAKE_URL,'_blank'); }
-  function ctaIntake(){ bot('<a class="ab-cta" href="'+INTAKE_URL+'" target="_blank" rel="noopener" onclick="window.dataLayer&&dataLayer.push({event:\'generate_lead\',cta_id:\'chat_intake\'})">Start my free family →</a>'); }
+  function ctaIntake(){ bot('<a class="ab-cta" href="'+INTAKE_URL+'" target="_blank" rel="noopener" onclick="window.dataLayer&&dataLayer.push({event:\'generate_lead\',cta_id:\'chat_intake\'})">Start a pilot →</a>'); }
 
   // ---- input handling ----
   function handle(text){
